@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+body {
+  overflow-x: hidden;
+  background: linear-gradient(135deg, rgb(var(--color-bg)), rgb(var(--color-bg-secondary)), rgb(var(--color-bg)));
+}
+
+
+/* Theme variables - Hero Section Color Palette */
+:root {
+  --color-primary: 168 85 247;  /* rgb(168, 85, 247) - purple-500 - matches hero */
+  --color-secondary: 236 72 153; /* rgb(236, 72, 153) - pink-500 - matches hero */
+  --color-accent: 34 197 94; /* rgb(34, 197, 94) - emerald-500 - keep green for success */
+  --color-bg: 15 23 42; /* slate-900 - matches hero background */
+  --color-bg-secondary: 88 28 135; /* purple-900 - matches hero gradient */
+  --color-text: 255 255 255; /* white - matches hero text */
+  --color-text-muted: 255 255 255; /* white with opacity for muted text */
+  --color-muted: 148 163 184; /* slate-400 - for muted text on dark background */
+  --color-surface: 30 41 59; /* slate-800 - dark cards */
+  --color-surface-light: 51 65 85; /* slate-700 - lighter dark cards */
+  --color-border: 71 85 105; /* slate-600 - borders on dark background */
+  --color-hover: 51 65 85; /* slate-700 - hover states on dark background */
+}
+
+.theme-bg {
+  background: linear-gradient(135deg, rgb(var(--color-bg)), rgb(var(--color-bg-secondary)), rgb(var(--color-bg)));
+  color: rgb(var(--color-text));
+}
+
+.theme-primary { color: rgb(var(--color-primary)); }
+.theme-secondary { color: rgb(var(--color-secondary)); }
+.theme-accent { color: rgb(var(--color-accent)); }
+
+.btn-primary {
+  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)));
+  color: white;
+  border: none;
+}
+.btn-primary:hover { 
+  background: linear-gradient(135deg, rgb(var(--color-secondary)), rgb(var(--color-primary)));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(var(--color-primary), 0.3);
+}
+
+.btn-accent {
+  background-color: rgb(var(--color-accent));
+  color: white;
+}
+.btn-accent:hover { 
+  filter: brightness(0.95);
+  transform: translateY(-2px);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, rgb(var(--color-bg)), rgb(var(--color-bg-secondary)), rgb(var(--color-bg)));
+}
+
+/* Lighter variant for hero */
+.gradient-hero-light {
+  background: linear-gradient(135deg,
+    rgba(var(--color-primary), 0.1),
+    rgba(var(--color-secondary), 0.08),
+    rgba(var(--color-accent), 0.05)
+  );
+}
+
+/* Additional utility classes for modern design */
+.theme-surface {
+  background-color: rgb(var(--color-surface));
+  border: 1px solid rgb(var(--color-border));
+  backdrop-filter: blur(10px);
+}
+
+.theme-surface-light {
+  background-color: rgb(var(--color-surface-light));
+  border: 1px solid rgb(var(--color-border));
+  backdrop-filter: blur(10px);
+}
+
+.theme-hover:hover {
+  background-color: rgb(var(--color-hover));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(var(--color-primary), 0.2);
+}
+
+.gradient-cool {
+  background: linear-gradient(135deg,
+    rgba(var(--color-primary), 0.1),
+    rgba(var(--color-secondary), 0.08),
+    rgba(var(--color-accent), 0.06)
+  );
+}
+
+.gradient-card {
+  background: linear-gradient(135deg,
+    rgba(var(--color-primary), 0.05),
+    rgba(var(--color-secondary), 0.03)
+  );
+}
+
+/* Text utilities for dark theme */
+.theme-text {
+  color: rgb(var(--color-text));
+}
+
+.theme-text-muted {
+  color: rgba(var(--color-text), 0.7);
+}
+
+.theme-text-secondary {
+  color: rgb(var(--color-muted));
+}
+
