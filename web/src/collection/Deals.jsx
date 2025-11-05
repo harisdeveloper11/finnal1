@@ -11,7 +11,7 @@ const Deals = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products/collection/deals`);
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products/collection/deals`);
         setProducts(res.data);
       } catch (err) {
         console.error("Error fetching deals products:", err);

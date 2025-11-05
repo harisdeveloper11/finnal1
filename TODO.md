@@ -1,45 +1,35 @@
-# TODO: Fix API Routes and Data Fetching Issues
+# Deployment Plan for React + TypeScript + Tailwind + Vite Project to Vercel
 
-## Issues Identified:
-1. **ID Field Mismatch**: Backend returns `id` (Firestore doc.id), but frontend uses `_id`
-2. **Environment Variables**: Some files use `process.env.REACT_APP_API_URL` instead of `import.meta.env.VITE_API_BASE_URL`
-3. **Product ID in Orders**: Cart items don't include product ID, causing order placement to fail
-4. **Collection Endpoints**: Some collection fetches use wrong env vars
+## Information Gathered
+- Project directory: `web/`
+- `package.json` has correct scripts: `"dev": "vite"`, `"build": "vite build"`, `"preview": "vite preview"`
+- `vite.config.ts` has `outDir: 'dist'`
+- `src/main.tsx` exists and is properly configured
+- `vercel.json` exists but has `outputDirectory: "build"` (needs to be `"dist"` to match Vite output)
+- PostCSS and Tailwind config files (`postcss.config.cjs` and `tailwind.config.cjs`) are missing in `web/` and need to be created with specified content
+- `.gitignore` in `web/` includes `.vercel` but not `serviceAccountKey.json`; sensitive files like `backend/serviceAccountKey.json` should be excluded from git
+- No active terminals running; ready to execute commands
 
-## Fixes Needed:
+## Plan
+1. Navigate to the project directory: `cd web`
+2. Create `postcss.config.cjs` with correct configuration
+3. Create `tailwind.config.cjs` with correct configuration
+4. Update `vercel.json` to set `outputDirectory: "dist"`
+5. Update `.gitignore` to exclude sensitive files like `serviceAccountKey.json`
+6. Run `npm install` to install dependencies
+7. Run `npm run build` to verify build succeeds and generates `dist/` folder
+8. Set Git author information
+9. Initialize Git, add remote, commit, and push to GitHub
+10. Login to Vercel CLI
+11. Deploy to Vercel production and retrieve the URL
 
-### Frontend ID Fixes:
-- [x] Change all `product._id` to `product.id` in:
-  - FeaturedProducts.tsx
-  - prodectdetails.tsx
-  - dashboard/products.jsx
-  - pages/Search.jsx
-  - collection/Shop.jsx
-  - collection/Trending.jsx
-  - collection/Latest.jsx
-- [x] Change all `order._id` to `order.id` in dashboard/orders.jsx
-- [x] Change all `contact._id` to `contact.id` in dashboard/contacts.jsx
+## Dependent Files to Edit
+- `web/postcss.config.cjs` (create)
+- `web/tailwind.config.cjs` (create)
+- `web/vercel.json` (update outputDirectory)
+- `web/.gitignore` (update to exclude sensitive files)
 
-### Environment Variable Fixes:
-- [x] Change `process.env.REACT_APP_API_URL` to `import.meta.env.VITE_API_BASE_URL` in:
-  - pages/Search.jsx
-  - collection/Shop.jsx
-  - collection/Trending.jsx
-  - collection/Latest.jsx
-
-### Cart and Order Fixes:
-- [x] Update CartContext to include productId in CartItem
-- [x] Update addToCart calls to pass productId
-- [x] Update OrderFormModal to use productId from cart items
-
-### Backend Verification:
-- [ ] Ensure all routes return correct data structure
-- [ ] Verify Firestore queries work correctly
-
-## Testing:
-- [ ] Test product search and filters
-- [ ] Test product detail pages
-- [ ] Test related products
-- [ ] Test contact form
-- [ ] Test order placement
-- [ ] Test dashboard data fetching
+## Followup Steps
+- After build, check for deprecated packages or warnings and update if necessary
+- Ensure deployment succeeds without errors
+- Test the production URL for functionality

@@ -80,7 +80,7 @@ export default function OrderFormModal() {
               <label className="block text-xs font-semibold text-gray-600 mb-1">Customer Name</label>
               <div className="flex items-center gap-2 border rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-[rgba(var(--color-primary),0.25)]">
                 <User size={16} className="text-gray-500" />
-                <input className="w-full outline-none" value={name} onChange={e=>setName(e.target.value)} required placeholder="John Doe" />
+                <input className="w-full outline-none text-black" value={name} onChange={e=>setName(e.target.value)} required placeholder="John Doe" />
               </div>
             </div>
             <div className="relative">
@@ -89,7 +89,7 @@ export default function OrderFormModal() {
                 <Phone size={16} className="text-gray-500" />
                 <input
                   type="tel"
-                  className="w-full outline-none"
+                  className="w-full outline-none text-black"
                   value={phone}
                   onChange={e => setPhone(e.target.value)}
                   required
@@ -103,7 +103,7 @@ export default function OrderFormModal() {
                 <Phone size={16} className="text-gray-500" />
                 <input
                   type="email"
-                  className="w-full outline-none"
+                  className="w-full outline-none text-black"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required
@@ -115,7 +115,7 @@ export default function OrderFormModal() {
               <label className="block text-xs font-semibold text-gray-600 mb-1">Address / Pickup</label>
               <div className="flex items-center gap-2 border rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-[rgba(var(--color-primary),0.25)]">
                 <MapPin size={16} className="text-gray-500" />
-                <input className="w-full outline-none" placeholder="Address or Pickup location" value={address} onChange={e=>setAddress(e.target.value)} required={method === 'COD'} />
+                <input className="w-full outline-none text-black" placeholder="Address or Pickup location" value={address} onChange={e=>setAddress(e.target.value)} required={method === 'COD'} />
               </div>
             </div>
             <div>

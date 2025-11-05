@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Sensitive files
+serviceAccountKey.json
+backend/serviceAccountKey.json
