@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { motion } from 'framer-motion';
-
-
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
 
 const testimonials = [
   {
@@ -41,47 +42,53 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-16 px-6 theme-bg">
-      <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold theme-text">
-          What Our Customers Say
-        </h2>
-        <p className="mt-2 theme-text-muted">
-          Trusted by thousands of happy customers worldwide
-        </p>
-      </div>
+    <section className="py-16 px-6 theme-bg flex justify-center">
+      <div className="w-full max-w-6xl">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold theme-text">
+            What Our Customers Say
+          </h2>
+          <p className="mt-2 theme-text-muted">
+            Trusted by thousands of happy customers worldwide
+          </p>
+        </div>
 
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
-        spaceBetween={20}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-        grabCursor={true}
-      >
-        {testimonials.map((t) => (
-          <SwiperSlide key={t.id}>
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              className="theme-surface rounded-2xl shadow-2xl p-6 transition duration-300 hover:shadow-2xl flex flex-col items-center text-center backdrop-blur-md border border-white/10"
-            >
-              <img
-                src={t.image}
-                alt={t.name}
-                className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-white/20"
-              />
-              <h3 className="text-lg font-semibold theme-text">{t.name}</h3>
-              <p className="text-sm theme-text-muted">{t.role}</p>
-              <p className="mt-3 theme-text-muted italic">"{t.review}"</p>
-            </motion.div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <Swiper
+          className="w-full"
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000 }}
+          spaceBetween={20}
+          loop={true}
+          centeredSlides={true}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 2 },
+            1280: { slidesPerView: 3 },
+          }}
+          grabCursor={true}
+        >
+          {testimonials.map((t) => (
+            <SwiperSlide key={t.id}>
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                className="theme-surface rounded-2xl shadow-2xl p-6 transition duration-300 hover:shadow-2xl flex flex-col items-center text-center backdrop-blur-md border border-white/10 min-h-[320px] justify-between"
+              >
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-20 h-20 rounded-full object-cover mb-4 border-2 border-white/20"
+                />
+                <h3 className="text-lg font-semibold theme-text">{t.name}</h3>
+                <p className="text-sm theme-text-muted">{t.role}</p>
+                <p className="mt-3 theme-text-muted italic">"{t.review}"</p>
+              </motion.div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 };
